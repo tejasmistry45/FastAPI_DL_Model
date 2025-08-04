@@ -169,5 +169,8 @@ async def startup_event():
     logger.info(f"🤖 Model status: {'✅ Loaded' if classifier else '❌ Not loaded'}")
     logger.info(f"🌐 Access the app at: http://localhost:8000")
 
+# For production
+PORT = int(os.getenv("PORT", 8000))
+
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run(app, host="0.0.0.0", port=PORT, reload=True)
