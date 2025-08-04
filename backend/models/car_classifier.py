@@ -117,8 +117,7 @@ class CarClassifier:
                     'class_probabilities': class_probabilities
                 }
 
-        
-
+    
 # =====For testing purpose=======
 # model_path = "../saved_models/car_classifier_20250731_210809.pth"
 # metadata_path = "../saved_models/car_classifier_20250731_210809_metadata.json"

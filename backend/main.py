@@ -159,7 +159,7 @@ async def not_found_handler(request: Request, exc: HTTPException):
         )
     else:
         # For non-API routes, serve the main app (SPA behavior)
-        return await serve_frontend
+        return await serve_frontend()
     
 @app.on_event("startup")
 async def startup_event():
