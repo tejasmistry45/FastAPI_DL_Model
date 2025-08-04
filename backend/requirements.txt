@@ -1,0 +1,9 @@
+fastapi
+fastapi[standard]
+python-dotenv
+torch
+torchvision
+pillow
+python-multipart
+python-jose
+uvicorn

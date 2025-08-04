@@ -1,0 +1,40 @@
+{
+    "model_name": "car_classifier_20250731_210809",
+    "timestamp": "20250731_210809",
+    "class_names": [
+        "Maruti_Suzuki_Baleno",
+        "Maruti_Suzuki_Brezza",
+        "Maruti_Suzuki_Swift",
+        "Maruti_Suzuki_WagonR"
+    ],
+    "num_classes": 4,
+    "input_size": [
+        224,
+        224
+    ],
+    "architecture": "EfficientNet-B0",
+    "final_best_accuracy": 1.0,
+    "total_epochs": 45,
+    "normalization_mean": [
+        0.485,
+        0.456,
+        0.406
+    ],
+    "normalization_std": [
+        0.229,
+        0.224,
+        0.225
+    ],
+    "available_metrics": [
+        "train_loss",
+        "train_car_loss",
+        "train_ood_loss",
+        "train_car_acc",
+        "train_ood_acc",
+        "val_loss",
+        "val_car_loss",
+        "val_ood_loss",
+        "val_car_acc",
+        "val_ood_acc"
+    ]
+}

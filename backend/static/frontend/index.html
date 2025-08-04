@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Classification App</title>
+    <!-- Updated path for integrated serving -->
+    <link rel="stylesheet" href="/static/frontend/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 Car Classification App</h1>
+            <p>Upload an image to classify Maruti Suzuki car models</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <circle cx="10" cy="13" r="2"/>
+                            <path d="m20 17-1.09-1.09a2 2 0 0 0-2.82 0L10 22"/>
+                        </svg>
+                        <h3>Drop your image here</h3>
+                        <p>or click to browse</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <h3>Image Preview</h3>
+                <img id="imagePreview" alt="Preview">
+                <button id="predictBtn" class="btn-primary">Classify Image</button>
+            </div>
+
+            <div class="loading-section" id="loadingSection" style="display: none;">
+                <div class="spinner"></div>
+                <p>Classifying your image...</p>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h3>Classification Results</h3>
+                <div class="prediction-card">
+                    <div class="predicted-class">
+                        <h4>Predicted Class:</h4>
+                        <span id="predictedClass"></span>
+                    </div>
+                    <div class="confidence">
+                        <h4>Confidence:</h4>
+                        <span id="confidence"></span>
+                    </div>
+                </div>
+                
+                <div class="probabilities-section" id="probabilitiesSection">
+                    <h4>All Class Probabilities:</h4>
+                    <div id="probabilitiesList"></div>
+                </div>
+                
+                <button id="resetBtn" class="btn-secondary">Upload Another Image</button>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-message">
+                    <h3>⚠️ Error</h3>
+                    <p id="errorMessage"></p>
+                    <button id="retryBtn" class="btn-secondary">Try Again</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="supported-classes">
+                <h4>Supported Car Models:</h4>
+                <div class="classes-list">
+                    <span class="class-tag">Maruti Suzuki Baleno</span>
+                    <span class="class-tag">Maruti Suzuki Brezza</span>
+                    <span class="class-tag">Maruti Suzuki Swift</span>
+                    <span class="class-tag">Maruti Suzuki WagonR</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Updated path for integrated serving -->
+    <script src="/static/frontend/script.js"></script>
+</body>
+</html>
