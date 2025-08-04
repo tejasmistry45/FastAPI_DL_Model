@@ -5,147 +5,186 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     color: #333;
 }
 
-.container {
-    max-width: 800px;
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 15px;
 }
 
-header {
+/* Header - Compact */
+.app-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
     color: white;
+    flex-shrink: 0;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 5px;
 }
 
-header p {
-    font-size: 1.1rem;
+.car-icon {
+    font-size: 1.8rem;
+}
+
+.app-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 0.9rem;
     opacity: 0.9;
+    font-weight: 500;
 }
 
-main {
+/* Main Content */
+.main-content {
+    flex: 1;
     background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
 }
 
-.upload-section {
-    margin-bottom: 30px;
+/* Upload Zone */
+.upload-zone {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
 }
 
 .upload-area {
-    border: 3px dashed #667eea;
-    border-radius: 15px;
-    padding: 60px 20px;
-    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    border: 2px dashed #667eea;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: #f8f9ff;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
 }
 
 .upload-area:hover {
     border-color: #764ba2;
-    background: #f0f2ff;
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #f0f2ff 0%, #e8ebff 100%);
+    transform: scale(1.02);
 }
 
 .upload-area.dragover {
     border-color: #764ba2;
-    background: #e8ebff;
+    background: linear-gradient(135deg, #e8ebff 0%, #dce0ff 100%);
+    border-style: solid;
 }
 
-.upload-content svg {
-    color: #667eea;
-    margin-bottom: 20px;
-}
-
-.upload-content h3 {
-    color: #333;
+.upload-icon {
+    font-size: 2.2rem;
     margin-bottom: 10px;
-    font-size: 1.3rem;
 }
 
-.upload-content p {
-    color: #666;
-    font-size: 1rem;
+.upload-area h2 {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
-.preview-section {
-    text-align: center;
-    margin-bottom: 30px;
+.upload-area p {
+    color: #718096;
+    font-size: 0.9rem;
 }
 
-.preview-section h3 {
-    margin-bottom: 20px;
-    color: #333;
+/* Preview Zone */
+.preview-zone {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 15px;
+}
+
+.image-container {
+    max-width: 300px;
+    max-height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background: #f7fafc;
 }
 
 #imagePreview {
-    max-width: 100%;
-    max-height: 400px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
-.btn-primary, .btn-secondary {
-    padding: 12px 30px;
+.classify-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
     border: none;
-    border-radius: 25px;
-    font-size: 1rem;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.btn-primary:hover {
+.classify-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.btn-secondary {
-    background: #f8f9fa;
-    color: #333;
-    border: 2px solid #dee2e6;
+/* Processing Zone */
+.processing-zone {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
-.btn-secondary:hover {
-    background: #e9ecef;
-    transform: translateY(-1px);
-}
-
-.loading-section {
-    text-align: center;
-    padding: 40px;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #667eea;
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
 }
 
 @keyframes spin {
@@ -153,154 +192,481 @@ main {
     100% { transform: rotate(360deg); }
 }
 
-.results-section {
-    text-align: center;
+.processing-zone p {
+    font-size: 1rem;
+    color: #4a5568;
+    font-weight: 500;
 }
 
-.results-section h3 {
-    margin-bottom: 30px;
-    color: #333;
-    font-size: 1.5rem;
+/* Results Zone - Mobile First */
+.results-zone {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
 }
 
-.prediction-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 30px;
-    border-radius: 15px;
-    margin-bottom: 30px;
+.results-container {
+    height: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
 }
 
-.predicted-class, .confidence {
+/* Image Section */
+.image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9fafb;
+    border-radius: 16px;
+    padding: 15px;
+    min-height: 200px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+#resultImage {
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Results Section */
+.results-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Compact Prediction Box */
+.prediction-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    flex-shrink: 0;
+}
+
+.prediction-label {
+    font-size: 0.7rem;
+    opacity: 0.85;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.prediction-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.confidence-value {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Probabilities Section */
+.probabilities-box {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.probabilities-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 12px;
     text-align: center;
 }
 
-.predicted-class h4, .confidence h4 {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.predicted-class span, .confidence span {
-    font-size: 1.5rem;
-    font-weight: bold;
-    display: block;
-}
-
-.probabilities-section {
-    margin-bottom: 30px;
-}
-
-.probabilities-section h4 {
-    margin-bottom: 20px;
-    color: #333;
+.probabilities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .probability-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    padding: 8px 10px;
     background: #f8f9ff;
-    border-radius: 10px;
-    border-left: 4px solid #667eea;
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.probability-name {
+    font-weight: 600;
+    color: #2d3748;
+    flex: 1;
+    font-size: 0.8rem;
 }
 
 .probability-bar {
-    width: 200px;
-    height: 8px;
-    background: #e9ecef;
-    border-radius: 4px;
+    flex: 1;
+    height: 5px;
+    background: #e2e8f0;
+    border-radius: 3px;
     overflow: hidden;
-    margin-left: 15px;
+    margin: 0 10px;
+    max-width: 100px;
 }
 
 .probability-fill {
     height: 100%;
     background: linear-gradient(90deg, #667eea, #764ba2);
-    border-radius: 4px;
-    transition: width 0.8s ease;
+    border-radius: 3px;
+    transition: width 1s ease;
 }
 
-.error-section {
-    text-align: center;
-    padding: 40px;
+.probability-percent {
+    font-weight: 700;
+    color: #4a5568;
+    font-size: 0.8rem;
+    flex: 0 0 35px;
+    text-align: right;
 }
 
-.error-message {
-    background: #fff5f5;
-    border: 2px solid #fed7d7;
-    border-radius: 15px;
-    padding: 30px;
-    color: #c53030;
-}
-
-.error-message h3 {
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-footer {
-    margin-top: 40px;
-    text-align: center;
-    color: white;
-}
-
-.supported-classes h4 {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-.classes-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.class-tag {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 16px;
-    border-radius: 20px;
+/* New Image Button */
+.new-image-btn {
+    background: #f7fafc;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
     font-size: 0.9rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
+.new-image-btn:hover {
+    background: #edf2f7;
+    border-color: #cbd5e0;
+    transform: translateY(-1px);
+}
+
+/* Error Zone */
+.error-zone {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    padding: 30px;
+}
+
+.error-icon {
+    font-size: 2.2rem;
+}
+
+.error-zone h2 {
+    color: #e53e3e;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.error-zone p {
+    color: #718096;
+    margin-bottom: 12px;
+}
+
+.retry-btn {
+    background: #e53e3e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+    background: #c53030;
+    transform: translateY(-1px);
+}
+
+/* Footer - Compact */
+.app-footer {
+    margin-top: 12px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.supported-models {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.model-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+/* Custom Scrollbar */
+.probabilities-box::-webkit-scrollbar {
+    width: 4px;
+}
+
+.probabilities-box::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 2px;
+}
+
+.probabilities-box::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 2px;
+}
+
+.probabilities-box::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+/* Tablet and Desktop Responsive */
+@media (min-width: 768px) {
+    .app-container {
+        padding: 20px;
+    }
+    
+    .app-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .main-content {
+        min-height: 500px;
+    }
+    
+    .upload-area {
+        max-width: 500px;
+        height: 280px;
+    }
+    
+    .upload-icon {
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .upload-area h2 {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+    
+    .upload-area p {
+        font-size: 1rem;
+    }
+    
+    .image-container {
+        max-width: 400px;
+        max-height: 300px;
+    }
+    
+    #resultImage {
+        max-height: 300px;
+    }
+    
+    .results-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .image-section {
+        min-height: 400px;
+        padding: 20px;
+    }
+    
+    .prediction-box {
+        padding: 16px 20px;
+    }
+    
+    .prediction-label {
+        font-size: 0.8rem;
+        margin-bottom: 6px;
+    }
+    
+    .prediction-value {
+        font-size: 1.4rem;
+        margin-bottom: 4px;
+    }
+    
+    .confidence-value {
+        font-size: 1rem;
+    }
+    
+    .probabilities-title {
+        font-size: 1rem;
+    }
+    
+    .probability-item {
+        padding: 10px 12px;
+    }
+    
+    .probability-name {
+        font-size: 0.9rem;
+        flex: 0 0 160px;
+    }
+    
+    .probability-bar {
+        max-width: 120px;
+    }
+    
+    .probability-percent {
+        font-size: 0.9rem;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1024px) {
+    .app-container {
+        padding: 25px;
+    }
+    
+    .results-container {
+        gap: 40px;
+    }
+    
+    .probability-name {
+        flex: 0 0 180px;
+    }
+    
+    .probability-bar {
+        max-width: 140px;
+    }
+}
+
+/* Very Small Mobile */
+@media (max-width: 480px) {
+    .app-container {
+        padding: 10px;
+    }
+    
+    .app-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .upload-area {
+        height: 160px;
+    }
+    
+    .upload-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+    
+    .upload-area h2 {
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+    }
+    
+    .upload-area p {
+        font-size: 0.85rem;
+    }
+    
+    .image-container {
+        max-width: 250px;
+        max-height: 150px;
+    }
+    
+    #resultImage {
+        max-height: 150px;
+    }
+    
+    .results-zone {
         padding: 15px;
     }
     
-    header h1 {
-        font-size: 2rem;
+    .image-section {
+        min-height: 150px;
+        padding: 10px;
     }
     
-    main {
-        padding: 30px 20px;
-    }
-    
-    .prediction-card {
+    .probability-item {
         flex-direction: column;
+        gap: 6px;
         text-align: center;
     }
     
     .probability-bar {
-        width: 150px;
+        width: 100%;
+        margin: 4px 0;
+        max-width: none;
     }
     
-    .classes-list {
+    .probability-name,
+    .probability-percent {
+        flex: none;
+    }
+    
+    .supported-models {
         flex-direction: column;
         align-items: center;
+        gap: 4px;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .app-container {
+        padding: 8px;
+    }
+    
+    .app-header {
+        margin-bottom: 8px;
+    }
+    
+    .app-header h1 {
+        font-size: 1.4rem;
+    }
+    
+    .subtitle {
+        font-size: 0.7rem;
+    }
+    
+    .upload-area {
+        height: 100px;
+    }
+    
+    .main-content {
+        min-height: 300px;
+    }
+    
+    .results-zone {
+        padding: 10px;
+    }
+    
+    .image-section {
+        min-height: 120px;
+    }
+    
+    #resultImage {
+        max-height: 100px;
+    }
+    
+    .probabilities-box {
+        max-height: 150px;
     }
 }

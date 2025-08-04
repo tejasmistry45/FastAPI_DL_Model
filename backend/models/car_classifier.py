@@ -91,25 +91,32 @@ class CarClassifier:
             ood_prob = torch.sigmoid(ood_logits).item()
             
             if ood_prob < ood_threshold:
-                predicted_class = "Not a Car"
-                confidence = 1 - ood_prob
-                class_probabilities = None
+                # Not a car - explicitly return None for class probabilities
+                return {
+                    'predicted_class': "Not a Car",
+                    'confidence': 1 - ood_prob,
+                    'ood_probability': ood_prob,
+                    'class_probabilities': None  # Explicitly None
+                }
             else:
+                # Is a car - return class probabilities
                 probabilities = torch.nn.functional.softmax(car_logits[0], dim=0)
                 predicted_idx = torch.argmax(probabilities).item()
                 confidence = probabilities[predicted_idx].item()
                 predicted_class = self.classes[predicted_idx]
+                
                 class_probabilities = {
                     self.classes[i]: float(probabilities[i])
                     for i in range(len(self.classes))
                 }
-            
-            return {
-                'predicted_class': predicted_class,
-                'confidence': confidence,
-                'ood_probability': ood_prob,
-                'class_probabilities': class_probabilities
-            }
+                
+                return {
+                    'predicted_class': predicted_class,
+                    'confidence': confidence,
+                    'ood_probability': ood_prob,
+                    'class_probabilities': class_probabilities
+                }
+
         
 
 # =====For testing purpose=======
